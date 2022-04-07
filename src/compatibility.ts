@@ -18,7 +18,7 @@ type TrackingFileVersion = 'plugin-source' | 'toolbelt' | 'none';
  * @deprecated use only during transition to new source-tracking commands
  */
 export const getTrackingFileVersion = (org: Org, projectPath: string): TrackingFileVersion => {
-  const orgsDir = path.join(projectPath, '.sfdx', 'orgs');
+  const orgsDir = path.join(projectPath, '.sfdx', 'fpush-orgs');
   const newFilesDir = path.join(orgsDir, org.getOrgId());
   // has new tracking files based on orgId
   if (fs.existsSync(newFilesDir) && fs.readdirSync(newFilesDir).length > 0) {

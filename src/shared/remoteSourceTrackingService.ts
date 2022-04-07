@@ -109,7 +109,7 @@ export class RemoteSourceTrackingService extends ConfigFile<RemoteSourceTracking
   }
 
   public static getFilePath(orgId: string): string {
-    return path.join('.sfdx', 'orgs', orgId, RemoteSourceTrackingService.getFileName());
+    return path.join('.sfdx', 'fpush-orgs', orgId, RemoteSourceTrackingService.getFileName());
   }
 
   /**
@@ -134,7 +134,7 @@ export class RemoteSourceTrackingService extends ConfigFile<RemoteSourceTracking
   public async init(): Promise<void> {
     this.org = await Org.create({ aliasOrUsername: this.options.username });
     this.logger = await Logger.child(this.constructor.name);
-    this.options.filePath = path.join('orgs', this.org.getOrgId());
+    this.options.filePath = path.join('fpush-orgs', this.org.getOrgId());
     this.options.filename = RemoteSourceTrackingService.getFileName();
 
     try {

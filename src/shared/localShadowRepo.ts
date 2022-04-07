@@ -14,7 +14,7 @@ import { chunkArray, pathIsInFolder } from './functions';
 
 /** returns the full path to where we store the shadow repo */
 const getGitDir = (orgId: string, projectPath: string): string => {
-  return path.join(projectPath, '.sfdx', 'orgs', orgId, 'localSourceTracking');
+  return path.join(projectPath, '.sfdx', 'fpush-orgs', orgId, 'localSourceTracking');
 };
 
 // filenames were normalized when read from isogit
